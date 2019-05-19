@@ -44,7 +44,6 @@ class Song
     }
   end
 
-=begin
   def self.new_from_filename(name)
     # Source: https://ruby-doc.org/core-2.6.1/doc/regexp_rdoc.html
     song = self.new
@@ -60,7 +59,6 @@ class Song
     @@all << song
     song
   end
-=end
 
   def save
     self.class.all << self
