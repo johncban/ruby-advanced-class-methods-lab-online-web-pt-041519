@@ -38,6 +38,12 @@ class Song
     self.find_by_name(name) || self.create_by_name(name) # Use || to choose find_by_name or create_by_name
   end
 
+  def self.alphabetical()
+    @@all.sort_by{
+      |sn| sn.name  
+    }
+  end
+
   def save
     self.class.all << self
   end
