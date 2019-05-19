@@ -44,6 +44,14 @@ class Song
     }
   end
 
+  def self.new_from_filename(name)
+    song = self.new 
+    song.name = name.split(File::SEPARATOR)[1].chomp(".mp3")
+    spng.artist_name = (name.split(File::SEPARATOR)[0])
+    @@all << song
+    song
+  end
+
   def save
     self.class.all << self
   end
