@@ -12,9 +12,14 @@ class Song
 
   def self.create
     song = self.new
-    song 
+    song
   end
 
 
+
+
+  def self.destroy_all()
+    @@all.clear
+  end
 
 end
