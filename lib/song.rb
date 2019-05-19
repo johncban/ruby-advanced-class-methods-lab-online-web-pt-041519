@@ -46,8 +46,8 @@ class Song
 
   def self.new_from_filename(name)
     song = self.new
-    song.name = name.split(File::SEPARATOR)[1].chomp(".mp3")
-    spng.artist_name = (name.split(File::SEPARATOR)[0])
+    song.name = name.split(/[^a-zA-Z\s]|\s-\s/)[1].chomp(".mp3")
+    spng.artist_name = (name.split(/[^a-zA-Z\s]|\s-\s/)[0])
     @@all << song
     song
   end
