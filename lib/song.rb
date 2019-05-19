@@ -12,7 +12,6 @@ class Song
 
   def self.create
     song = self.new
-    song.save
     song
   end
 
@@ -25,7 +24,7 @@ class Song
   def self.create_by_name(name)
     song = self.new
     song.name = name
-    @@all << song
+    song.save
     song
   end
 
@@ -48,15 +47,15 @@ class Song
   def self.new_from_filename(name)
     # Source: https://ruby-doc.org/core-2.6.1/doc/regexp_rdoc.html
     song = self.new
-    song.name = name.split(" - ")[1].chomp(".mp3")
-    song.artist_name = (name.split(" - ")[0])
+    song.name = name.split(/[^a-zA-Z\s]|\s-\s/)[1].chomp(".mp3")
+    song.artist_name = (name.split(/[^a-zA-Z\s]|\s-\s/)[0])
     song
   end
 
   def self.create_from_filename(name)
     song = self.new
-    song.name = (name.split(" - ")[1].chomp(".mp3"))
-    song.artist_name = (name.split(" - ")[0])
+    song.name = (name.split(/[^a-zA-Z\s]|\s-\s/)[1].chomp(".mp3"))
+    song.artist_name = (name.split(/[^a-zA-Z\s]|\s-\s/)[0])
     @@all << song
     song
   end
