@@ -45,6 +45,7 @@ class Song
   end
 
   def self.new_from_filename(name)
+    # Source: https://ruby-doc.org/core-2.6.1/doc/regexp_rdoc.html
     song = self.new
     song.name = name.split(/[^a-zA-Z\s]|\s-\s/)[1].chomp(".mp3")
     song.artist_name = (name.split(/[^a-zA-Z\s]|\s-\s/)[0])
