@@ -40,12 +40,12 @@ class Song
 
   def self.alphabetical()
     @@all.sort_by{
-      |sn| sn.name  
+      |sn| sn.name
     }
   end
 
   def self.new_from_filename(name)
-    song = self.new 
+    song = self.new
     song.name = name.split(File::SEPARATOR)[1].chomp(".mp3")
     spng.artist_name = (name.split(File::SEPARATOR)[0])
     @@all << song
